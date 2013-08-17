@@ -34,7 +34,7 @@ SUPERUSER_PACKAGE_PREFIX := com.android.settings.cyanogenmod.superuser
 ## http://review.cyanogenmod.org/#/c/32957/ ##
 
 PRODUCT_VERSION_MAJOR = 0
-PRODUCT_VERSION_MINOR = 7
+PRODUCT_VERSION_MINOR = 8
 PRODUCT_VERSION_MAINTENANCE = BETA
 
 # Set AX_BUILDTYPE
