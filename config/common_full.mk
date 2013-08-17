@@ -15,7 +15,6 @@ PRODUCT_PACKAGES += \
 		Torch \
 		LockClock \
 		ShareLogs \
-		PerformanceTool \
 		Email \
 		busybox
 
