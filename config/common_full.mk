@@ -1,6 +1,10 @@
 # Inherit common AX stuff
 $(call inherit-product, vendor/ax/config/common.mk)
 
+# Required AX packages
+PRODUCT_PACKAGES += \
+		Superuser \
+		su
 
 # Optional AX packages
 PRODUCT_PACKAGES += \
