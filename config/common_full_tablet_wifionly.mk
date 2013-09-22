@@ -1,5 +1,5 @@
-# Inherit common COS stuff
-$(call inherit-product, vendor/cos/config/common_full.mk)
+# Inherit common AX stuff
+$(call inherit-product, vendor/ax/config/common_full.mk)
 
 # Default ringtone
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -10,8 +10,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # BT config
 PRODUCT_COPY_FILES += \
     system/bluetooth/data/main.nonsmartphone.conf:system/etc/bluetooth/main.conf
-
-ifeq ($(TARGET_SCREEN_WIDTH) $(TARGET_SCREEN_HEIGHT),$(space))
-    PRODUCT_COPY_FILES += \
-        vendor/cos/prebuilt/common/bootanimation/800.zip:system/media/bootanimation.zip
-endif
