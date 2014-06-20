@@ -17,8 +17,6 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     PhaseBeam \
 		Torch \
-		LockClock \
-		ShareLogs \
 		Email \
 		busybox
 
