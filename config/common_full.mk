@@ -8,10 +8,6 @@ PRODUCT_PACKAGES += \
 
 # Optional AX packages
 PRODUCT_PACKAGES += \
-    HoloSpiralWallpaper \
-    MagicSmokeWallpapers \
-    NoiseField \
-    Galaxy4 \
     LiveWallpapers \
     LiveWallpapersPicker \
     VisualizationWallpapers \
@@ -29,6 +25,13 @@ PRODUCT_PACKAGES += \
     sshd_config \
     ssh-keygen \
 		rsync
+
+#F2FS
+PRODUCT_PACKAGES += \
+	mkfs.f2fs \
+	fsck.f2fs \
+	fibmap.f2fs \
+	f2fstat
 
 
 # T-Mobile theme engine
