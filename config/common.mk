@@ -31,6 +31,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
+# init.d support
+PRODUCT_COPY_FILES += \
+    vendor/ax/prebuilt/common/bin/sysinit:system/bin/sysinit
+
 PRODUCT_PACKAGE_OVERLAYS += vendor/ax/overlay/dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/ax/overlay/common
 
