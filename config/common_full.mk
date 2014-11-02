@@ -12,7 +12,6 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     VisualizationWallpapers \
     PhaseBeam \
-		Torch \
 		Email \
 		busybox
 
