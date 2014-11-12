@@ -8,5 +8,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.alarm_alert=Hassium.ogg
 
 PRODUCT_PACKAGES += \
-  Mms
+    Mms
 
+PRODUCT_COPY_FILES += \
+    vendor/ax/prebuilt/system/media/bootanimation.zip:system/media/bootanimation.zip
