@@ -1,16 +1,3 @@
-PRODUCT_BRAND ?= aosp
-
-SUPERUSER_EMBEDDED := true
-SUPERUSER_PACKAGE_PREFIX := com.android.settings.cyanogenmod.superuser
-
-ifdef AX_NIGHTLY
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rommanager.developerid=aospN
-else
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rommanager.developerid=aosp+
-endif
-
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -23,62 +10,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dateformat=MM-dd-yyyy \
     ro.com.android.dataroaming=false
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=1 \
-    persist.sys.root_access=1
+PRODUCT_COPY_FILES += \
+    vendor/ax/prebuilt/system/media/bootanimation.zip:system/media/bootanimation.zip
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-# init.d support
-PRODUCT_COPY_FILES += \
-    vendor/ax/prebuilt/common/bin/sysinit:system/bin/sysinit
+PRODUCT_PACKAGES += \
+    busybox
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/ax/overlay/dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/ax/overlay/common
+PRODUCT_PACKAGES += \
+    scp \
+    sftp \
+    ssh \
+    sshd \
+    sshd_config \
+    ssh-keygen \
+    rsync
 
-PRODUCT_VERSION_MAJOR = 1
-PRODUCT_VERSION_MINOR = 0
-PRODUCT_VERSION_MINOR2 = 0
-PRODUCT_VERSION_MAINTENANCE = BETA
-
-# Set AX_BUILDTYPE
-ifdef AX_NIGHTLY
-    AX_BUILDTYPE := NIGHTLY
-endif
-ifdef AX_EXPERIMENTAL
-    AX_BUILDTYPE := EXPERIMENTAL
-endif
-ifdef AX_RELEASE
-    AX_BUILDTYPE := RELEASE
-endif
-
-ifdef AX_BUILDTYPE
-    ifdef AX_EXTRAVERSION
-        # Force build type to EXPERIMENTAL
-        AX_BUILDTYPE := EXPERIMENTAL
-        # Add leading dash to AX_EXTRAVERSION
-        AX_EXTRAVERSION := -$(AX_EXTRAVERSION)
-    endif
-else
-    # If AX_BUILDTYPE is not defined, set to UNOFFICIAL
-    AX_BUILDTYPE := UNOFFICIAL
-    AX_EXTRAVERSION :=
-endif
-
-ifdef AX_RELEASE
-    AX_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MINOR2)-$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(AX_BUILD)
-else
-    AX_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MINOR2)-$(shell date -u +%Y%m%d)-$(AX_BUILDTYPE)-$(AX_BUILD)$(AX_EXTRAVERSION)
-endif
-
-PRODUCT_PROPERTY_OVERRIDES += \
-  ro.AX.version=$(AX_VERSION) \
-  ro.modversion=Ax-$(AX_VERSION) \
-  ro.goo.developerid=Lloir \
-  ro.goo.rom=Aosp+ \
-  ro.goo.version=$(shell date +%s)
-
-
--include $(WORKSPACE)/hudson/image-auto-bits.mk
