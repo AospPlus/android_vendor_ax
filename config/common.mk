@@ -17,6 +17,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
+PRODUCT_COPY_FILES += \
+    vendor/ax/prebuilt/viper4android/libv4a_fx_jb_NEON_SQ.so:system/lib/soundfx/libv4a_fx_ics.so
+    
 PRODUCT_PACKAGES += \
     busybox
 
