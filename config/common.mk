@@ -1,6 +1,8 @@
 #include opengapps
 $(call inherit-product, vendor/google/build/opengapps-packages.mk)
 
+PRODUCT_PACKAGE_OVERLAYS += vendor/ax/overlay/common
+
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
