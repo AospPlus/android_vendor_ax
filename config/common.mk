@@ -25,9 +25,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     vendor/ax/prebuilt/viper4android/libv4a_fx_jb_NEON_SQ.so:system/lib/soundfx/libv4a_fx_ics.so
-
-PRODUCT_COPY_FILES += \
-    vendor/ax/prebuilt/Superuser/su:root/sbin/su
     
 PRODUCT_PACKAGES += \
     busybox
